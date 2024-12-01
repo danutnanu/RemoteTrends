@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sidebar .nav-link {
+    color: white; 
+    text-decoration: none; 
+}
+
+.sidebar .nav-link:hover {
+    color: #74b3f1; 
+}
+
+.sidebar .nav-link:active,
+.sidebar .nav-link:focus {
+    color: #f8f9fa; 
+    background-color: transparent; 
+    outline: none; 
+}
+
+/* Style for the navbar on small screens */
+.navbar-custom {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 1030; 
+    width: 100%;
+    padding: 10px;
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; 
+    background-color: #f8f9fa;
+}
+
+/* Ensure the toggle button is aligned to the left */
+.navbar-toggler {
+    margin-left: 0;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1040;
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Add padding to the body or main content to prevent overlap */
+body {
+    padding-top: 60px;
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .navbar-custom {
+        padding: 15px;
+    }
+
+    body {
+        padding-top: 70px;
+    }
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar as BootstrapNavbar, Nav, Button, Offcanvas } from 'react-bootstrap';
+import { Navbar as BootstrapNavbar, Nav, Offcanvas } from 'react-bootstrap';
+import './Navbar.css';
 
 const Sidebar = () => {
   const [show, setShow] = useState(false);
@@ -10,13 +11,11 @@ const Sidebar = () => {
 
   return (
     <>
-      <BootstrapNavbar bg="light" expand="lg" className="d-lg-none">
-        <Button variant="primary" onClick={handleShow}>
-          Menu
-        </Button>
+      <BootstrapNavbar bg="light" expand="lg" className="navbar-custom d-lg-none fixed-top">
+        <BootstrapNavbar.Toggle aria-controls="offcanvasNavbar" onClick={handleShow} />
       </BootstrapNavbar>
 
-      <Offcanvas show={show} onHide={handleClose} placement="start">
+      <Offcanvas show={show} onHide={handleClose} placement="start" id="offcanvasNavbar">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Menu</Offcanvas.Title>
         </Offcanvas.Header>
@@ -29,7 +28,7 @@ const Sidebar = () => {
         </Offcanvas.Body>
       </Offcanvas>
 
-      <div className="sidebar d-none d-lg-block" style={{ width: '250px', height: '100vh', position: 'fixed', backgroundColor: '#f8f9fa', padding: '20px', top: 0 }}>
+      <div className="sidebar d-none d-lg-block" style={{ width: '250px', height: '100vh', position: 'fixed', backgroundColor: '#24303f', padding: '20px', top: 0 }}>
         <Nav className="flex-column">
           <Nav.Link as={Link} to="/">Location Page</Nav.Link>
           <Nav.Link as={Link} to="/salary">Salary Page</Nav.Link>
