@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar as BootstrapNavbar, Nav, Offcanvas } from 'react-bootstrap';
-import './Navbar.css';
+import './Sidebar.css';
 
 const Sidebar = () => {
   const [show, setShow] = useState(false);
