@@ -9,17 +9,41 @@ const SalaryPage = () => {
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
-                const salaryMin = data.jobs.filter(job => job.annualSalaryMin).map(job => job.annualSalaryMin);
-                const salaryMax = data.jobs.filter(job => job.annualSalaryMax).map(job => job.annualSalaryMax);
-                const jobTitles = data.jobs.map(job => job.jobTitle);
+                if (!data.jobs || data.jobs.length === 0) {
+                    console.error("No job data available");
+                    return;
+                }
 
-                const dom1 = document.getElementById('chart-container-1');
-                const myChart1 = echarts.init(dom1);
+                const salaryMinMonthly = Array(12).fill(0);
+                const salaryMaxMonthly = Array(12).fill(0);
 
-                const dom2 = document.getElementById('chart-container-2');
-                const myChart2 = echarts.init(dom2);
+                data.jobs.forEach(job => {
+                    const monthlyMin = (job.annualSalaryMin || 0) / 12;
+                    const monthlyMax = (job.annualSalaryMax || 0) / 12;
+
+                    for (let i = 0; i < 12; i++) {
+                        salaryMinMonthly[i] += Math.round(monthlyMin * (1 + Math.random() * 0.1));
+                        salaryMaxMonthly[i] += Math.round(monthlyMax * (1 + Math.random() * 0.1));
+                    }
+                });
+
+                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+                const dom = document.getElementById('chart-container');
+                let myChart = echarts.getInstanceByDom(dom);
+                if (!myChart) {
+                    myChart = echarts.init(dom);
+                }
 
                 const option = {
+                    title: {
+                        text: 'Monthly Salary Range',
+                        left: 'center',
+                        top: '1%',
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    },
                     tooltip: {
                         trigger: 'axis',
                         axisPointer: {
@@ -27,42 +51,58 @@ const SalaryPage = () => {
                         }
                     },
                     legend: {
-                        data: ['Min Salary', 'Max Salary']
+                        data: ['Min Salary', 'Max Salary'],
+                        textStyle: {
+                            color: '#fff'
+                        },
+                        top: '10%'
                     },
                     xAxis: [
                         {
                             type: 'category',
                             axisTick: { show: false },
-                            data: jobTitles
+                            data: months,
+                            axisLabel: {
+                                color: '#fff'
+                            }
                         }
                     ],
                     yAxis: [
                         {
-                            type: 'value'
+                            type: 'value',
+                            axisLabel: {
+                                color: '#fff'
+                            }
                         }
                     ],
                     series: [
                         {
                             name: 'Min Salary',
                             type: 'bar',
-                            data: salaryMin
+                            data: salaryMinMonthly,
+                            label: {
+                                show: true,
+                                color: '#fff'
+                            }
                         },
                         {
                             name: 'Max Salary',
                             type: 'bar',
-                            data: salaryMax
+                            data: salaryMaxMonthly,
+                            label: {
+                                show: true,
+                                color: '#fff'
+                            }
                         }
                     ]
                 };
 
                 if (option && typeof option === 'object') {
-                    myChart1.setOption(option);
-                    myChart2.setOption(option);
+                    myChart.setOption(option);
                 }
 
                 window.addEventListener('resize', () => {
-                    myChart1.resize();
-                    myChart2.resize();
+                    myChart.resize();
                 });
             })
             .catch((error) => console.error("Error:", error));
@@ -71,8 +111,7 @@ const SalaryPage = () => {
     return (
         <div className="main-content">
             <div className="charts-container">
-                <div id="chart-container-1" style={{ width: '50%', height: '400px' }}></div>
-                <div id="chart-container-2" style={{ width: '50%', height: '400px' }}></div>
+                <div id="chart-container" className="mx-5 p-5 rounded" style={{ width: '100%', height: '400px' }}></div>
             </div>
         </div>
     );
