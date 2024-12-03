@@ -29,7 +29,11 @@ const Sidebar = () => {
       </Offcanvas>
 
       <div className="sidebar d-none d-lg-block" style={{ width: '250px', height: '100vh', position: 'fixed', backgroundColor: '#24303f', padding: '20px', top: 0 }}>
-        <Nav className="flex-column">
+        <div className="sidebar-header mb-5 p-2" style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+          <img src="/public/favic.ico" alt="RemoteTrends Logo" style={{ width: '30px', height: '30px', marginRight: '10px' }} />
+          <span style={{ color: '#fff', fontSize: '1.2em' }}>RemoteTrends</span>
+        </div>
+        <Nav className="flex-column ms-3">
           <Nav.Link as={Link} to="/">Location Page</Nav.Link>
           <Nav.Link as={Link} to="/salary">Salary Page</Nav.Link>
           <Nav.Link as={Link} to="/number">Number Page</Nav.Link>
