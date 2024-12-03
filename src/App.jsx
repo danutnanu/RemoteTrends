@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar/Navbar'
+import Sidebar from './components/Sidebar/Sidebar'
 import LocationPage from './components/pages/LocationPage/LocationPage'
 import SalaryPage from './components/pages/SalaryPage/SalaryPage'
 import NumberPage from './components/pages/NumberPage/NumberPage'
@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar />
+        <Sidebar />
         <Routes>
           <Route path="/" element={<LocationPage />} />
           <Route path="/salary" element={<SalaryPage />} />
