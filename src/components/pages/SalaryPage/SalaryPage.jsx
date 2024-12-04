@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import * as echarts from 'echarts';
 import './SalaryPage.css';
+import ScatterPlot from './ScatterPlot';
 
 const SalaryPage = () => {
     useEffect(() => {
@@ -22,8 +23,8 @@ const SalaryPage = () => {
                     const monthlyMax = (job.annualSalaryMax || 0) / 12;
 
                     for (let i = 0; i < 12; i++) {
-                        salaryMinMonthly[i] += Math.round(monthlyMin * (1 + Math.random() * 0.1));
-                        salaryMaxMonthly[i] += Math.round(monthlyMax * (1 + Math.random() * 0.1));
+                        salaryMinMonthly[i] += Math.round(monthlyMin * (1 + Math.random() * 0.3));
+                        salaryMaxMonthly[i] += Math.round(monthlyMax * (1 + Math.random() * 0.3));
                     }
                 });
 
@@ -70,6 +71,8 @@ const SalaryPage = () => {
                     yAxis: [
                         {
                             type: 'value',
+                            min: 25000,
+                            max: 55000,
                             axisLabel: {
                                 color: '#fff'
                             }
@@ -82,6 +85,9 @@ const SalaryPage = () => {
                             data: salaryMinMonthly,
                             label: {
                                 show: true,
+                                position: 'top',
+                                verticalAlign: 'middle',
+                                rotate: 90,
                                 color: '#fff'
                             }
                         },
@@ -91,6 +97,9 @@ const SalaryPage = () => {
                             data: salaryMaxMonthly,
                             label: {
                                 show: true,
+                                position: 'top',
+                                verticalAlign: 'middle',
+                                rotate: 90,
                                 color: '#fff'
                             }
                         }
@@ -109,10 +118,11 @@ const SalaryPage = () => {
     }, []);
 
     return (
-        <div className="main-content">
-            <div className="charts-container">
-                <div id="chart-container" className="mx-5 p-5 rounded" style={{ width: '100%', height: '400px' }}></div>
+        <div className="main-content border border-danger rounded">
+            <div className="charts-container mx-5 border border-warning rounded">
+                <div id="chart-container" className="chart" style={{ width: '100%', height: '400px' }}></div>
             </div>
+            <ScatterPlot />
         </div>
     );
 };

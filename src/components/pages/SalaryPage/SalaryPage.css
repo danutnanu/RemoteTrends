@@ -6,25 +6,28 @@ body, h1, .main-content, .charts-container {
 .main-content {
     display: flex;
     flex-direction: column;
-    width: calc(100% - 200px);
+    align-items: stretch;
+    width: calc(100% - 250px);
     margin-left: 250px;
-    height: 100vh;
     box-sizing: border-box;
     padding: 20px;
     background-color: #1a222c;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 .charts-container {
-    display: flex;
-    justify-content: space-between;
     width: 100%;
-    height: 100%;
-    gap: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 #chart-container {
-    width: 48%;
+    width: 100%;
     height: 400px;
     background-color: #24303f;
+    box-sizing: border-box;
 }
 
