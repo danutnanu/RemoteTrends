@@ -120,7 +120,7 @@ const SalaryPage = () => {
     return (
         <div className="main-content rounded">
             <div className="charts-container rounded">
-                <div id="chart-container" className="" style={{ width: '100%', height: '400px' }}></div>
+                <div id="chart-container" style={{ width: '100%', height: '400px' }}></div>
             </div>
             <ScatterPlot />
         </div>
