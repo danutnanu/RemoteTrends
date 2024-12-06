@@ -118,9 +118,9 @@ const SalaryPage = () => {
     }, []);
 
     return (
-        <div className="main-content border border-danger rounded">
-            <div className="charts-container mx-5 border border-warning rounded">
-                <div id="chart-container" className="chart" style={{ width: '100%', height: '400px' }}></div>
+        <div className="main-content rounded">
+            <div className="charts-container rounded">
+                <div id="chart-container" className="" style={{ width: '100%', height: '400px' }}></div>
             </div>
             <ScatterPlot />
         </div>

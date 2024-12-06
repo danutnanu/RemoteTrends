@@ -12,7 +12,6 @@ body, h1, .main-content, .charts-container {
     box-sizing: border-box;
     padding: 20px;
     background-color: #1a222c;
-    position: relative;
     min-height: 100vh;
     overflow: hidden;
 }
@@ -21,8 +20,9 @@ body, h1, .main-content, .charts-container {
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 20px;
-    padding-bottom: 20px;
-}
+    margin-top: 20px;
+    margin-left: 30px;
+  }
 
 #chart-container {
     width: 100%;
