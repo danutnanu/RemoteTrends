@@ -29,9 +29,8 @@ const Sidebar = () => {
       </Offcanvas>
 
       <div className="sidebar d-none d-lg-block">
-        <div className="sidebar-header mb-5 p-1 border-bottom">
-          <img src="/public/favic.ico" alt="RemoteTrends Logo" style={{ width: '30px', height: '30px', marginRight: '10px' }} />
-          <span style={{ color: '#fff', fontSize: '1.5em', fontWeight: 'bold' }}>RemoteTrends</span>
+        <div className="sidebar-header mb-5 p-2 fs-5 border-bottom">
+          Menu
         </div>
         <Nav className="flex-column ms-4 fs-5">
           <Nav.Link as={Link} to="/">Location Page</Nav.Link>
