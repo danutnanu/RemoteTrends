@@ -118,7 +118,7 @@ const SalaryPage = () => {
     }, []);
 
     return (
-        <div className="main-content rounded">
+        <div className="main-content">
             <div className="charts-container rounded">
                 <div id="chart-container" style={{ width: '100%', height: '400px' }}></div>
             </div>
