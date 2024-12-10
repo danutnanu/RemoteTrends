@@ -35,22 +35,23 @@
 /* Style for the navbar on small screens */
 .navbar-custom {
     position: fixed; 
-    top: 0; 
-    left: 0; 
     z-index: 1030; 
     width: 100%;
     padding: 10px;
     display: flex; 
     align-items: center; 
     justify-content: flex-start; 
-    background-color: #f8f9fa;
+    background-color: #24303f;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /* Ensure the toggle button is aligned to the left */
 .navbar-toggler {
-    margin-left: 0;
+    margin-top: 20px;
+    margin-left: 5px;
     position: absolute;
-    top: 10px;
+    top: 0;
     left: 10px;
     z-index: 1040;
     border: none;
@@ -61,7 +62,8 @@
 
 /* Add padding to the body or main content to prevent overlap */
 body {
-    padding-top: 60px;
+    padding-top: 0;
+    background-color: #24303f; /* Match the header color */
 }
 
 /* Ensure the Offcanvas menu takes full height and width */
