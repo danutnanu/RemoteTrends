@@ -119,7 +119,11 @@ const SalaryPage = () => {
 
     return (
         <div className="main-content">
-            <div className="charts-container rounded">
+            <div className="header pe-5 p-3">
+                <img src="/public/favic.ico" alt="RemoteTrends Logo" style={{ width: '30px', height: '30px', marginRight: '10px', marginLeft: '30px' }} />
+                <span style={{ color: '#fff', fontSize: '1.6em', fontWeight: 'bold' }}>RemoteTrends</span>
+            </div>
+            <div className="charts-container px-3 pt-1 rounded">
                 <div id="chart-container" style={{ width: '100%', height: '400px' }}></div>
             </div>
             <ScatterPlot />
