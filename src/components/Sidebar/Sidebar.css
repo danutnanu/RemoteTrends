@@ -4,6 +4,18 @@
     box-sizing: border-box;
 }
 
+.sidebar {
+    background-color: #24303f; /* Sidebar background color */
+    color: white; /* Sidebar text color */
+    height: 100vh; /* Full height */
+    width: 250px; /* Fixed width */
+    position: fixed; /* Fixed position */
+    top: 0; /* Align to top */
+    left: 0; /* Align to left */
+    padding: 20px; /* Padding */
+    z-index: 1000; /* Ensure sidebar is above other content */
+}
+
 .sidebar .nav-link {
     color: white; 
     text-decoration: none; 
@@ -52,13 +64,26 @@ body {
     padding-top: 60px;
 }
 
-/* Media query for small screens */
+/* Ensure the Offcanvas menu takes full height and width */
+.offcanvas-custom {
+    background-color: #24303f; /* Match sidebar color */
+    color: white; /* Ensure text is visible */
+    width: 250px; /* Full width */
+    height: 100%; /* Full height */
+}
+
+/* Hide the sidebar on medium and small devices */
 @media (max-width: 768px) {
-    .navbar-custom {
-        padding: 15px;
+    .sidebar {
+        display: none;
     }
 
-    body {
-        padding-top: 70px;
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .navbar-custom {
+        display: flex;
     }
 }
