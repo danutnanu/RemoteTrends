@@ -10,7 +10,6 @@ body, h1, .main-content, .charts-container {
     width: calc(100% - 250px);
     margin-left: 250px;
     box-sizing: border-box;
-    padding: 20px;
     background-color: #1a222c;
     min-height: 100vh;
     overflow: hidden;
@@ -19,9 +18,9 @@ body, h1, .main-content, .charts-container {
 .charts-container {
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 20px;
     margin-top: 20px;
     margin-left: 0;
+    /* padding: 20px; */
   }
 
 #chart-container {
@@ -38,3 +37,26 @@ body, h1, .main-content, .charts-container {
     }
 }
 
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background-color: #24303f;
+    /* padding: 10px; */
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.header span {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+}
