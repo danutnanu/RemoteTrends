@@ -75,7 +75,7 @@ const ScatterPlot = () => {
     }, []);
 
     return (
-        <div id="scatter-container" className="chart rounded"></div>
+        <div id="scatter-container" className="chart m-3 rounded"></div>
     );
 };
 
