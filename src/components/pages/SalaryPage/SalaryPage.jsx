@@ -72,7 +72,7 @@ const SalaryPage = () => {
                         {
                             type: 'value',
                             min: 25000,
-                            max: 55000,
+                            max: 70000,
                             axisLabel: {
                                 color: '#fff'
                             }
@@ -123,8 +123,8 @@ const SalaryPage = () => {
                 <img src="/public/favic.ico" alt="RemoteTrends Logo" style={{ width: '30px', height: '30px', marginRight: '10px', marginLeft: '30px' }} />
                 <span style={{ color: '#fff', fontSize: '1.6em', fontWeight: 'bold' }}>RemoteTrends</span>
             </div>
-            <div className="charts-container px-3 pt-1 rounded">
-                <div id="chart-container" style={{ width: '100%', height: '400px' }}></div>
+            <div className="charts-container px-3">
+                <div id="chart-container" className="pt-3 rounded" style={{ width: '100%', height: '400px' }}></div>
             </div>
             <ScatterPlot />
         </div>
