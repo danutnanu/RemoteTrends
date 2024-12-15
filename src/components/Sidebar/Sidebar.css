@@ -14,7 +14,7 @@
     left: 0; /* Align to left */
     padding: 20px; /* Padding */
     z-index: 1000; /* Ensure sidebar is above other content */
-    margin-top: 80px;
+    margin-top: 70px;
 }
 
 .sidebar .nav-link {
