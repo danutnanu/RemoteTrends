@@ -72,7 +72,7 @@ const SalaryPage = () => {
                         {
                             type: 'value',
                             min: 25000,
-                            max: 70000,
+                            max: 90000,
                             axisLabel: {
                                 color: '#fff'
                             }
