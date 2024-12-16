@@ -5,15 +5,15 @@
 }
 
 .sidebar {
-    background-color: #24303f; /* Sidebar background color */
-    color: white; /* Sidebar text color */
-    height: 100vh; /* Full height */
-    width: 250px; /* Fixed width */
-    position: fixed; /* Fixed position */
-    top: 0; /* Align to top */
-    left: 0; /* Align to left */
-    padding: 20px; /* Padding */
-    z-index: 1000; /* Ensure sidebar is above other content */
+    background-color: #24303f; 
+    color: white; 
+    height: 100vh;
+    width: 250px; 
+    position: fixed; 
+    top: 0;
+    left: 0; 
+    padding: 20px; 
+    z-index: 1000; 
     margin-top: 70px;
 }
 
@@ -69,14 +69,14 @@ body {
 
 /* Ensure the Offcanvas menu takes full height and width */
 .offcanvas-custom {
-    background-color: #24303f; /* Match sidebar color */
-    color: white; /* Ensure text is visible */
-    width: 250px; /* Full width */
-    height: 100%; /* Full height */
+    background-color: #24303f; 
+    color: white;
+    width: 250px;
+    height: 100%; 
 }
 
-/* Hide the sidebar on medium and small devices */
-@media (max-width: 768px) {
+/* Hide the sidebar only on small devices */
+@media (max-width: 576px) {
     .sidebar {
         display: none;
     }
