@@ -5,7 +5,7 @@ import ScatterPlot from './ScatterPlot';
 
 const SalaryPage = () => {
     useEffect(() => {
-        const url = "https://jobicy.com/api/v2/remote-jobs?count=20&geo=usa&industry=marketing&tag=seo";
+        const url = "https://jobicy.com/api/v2/remote-jobs?count=50";
 
         fetch(url)
             .then((response) => response.json())
@@ -15,20 +15,11 @@ const SalaryPage = () => {
                     return;
                 }
 
-                const salaryMinMonthly = Array(12).fill(0);
-                const salaryMaxMonthly = Array(12).fill(0);
+                const filteredJobs = data.jobs.filter(job => job.annualSalaryMin > 0 && job.annualSalaryMax > 0);
 
-                data.jobs.forEach(job => {
-                    const monthlyMin = (job.annualSalaryMin || 0) / 12;
-                    const monthlyMax = (job.annualSalaryMax || 0) / 12;
-
-                    for (let i = 0; i < 12; i++) {
-                        salaryMinMonthly[i] += Math.round(monthlyMin * (1 + Math.random() * 0.3));
-                        salaryMaxMonthly[i] += Math.round(monthlyMax * (1 + Math.random() * 0.3));
-                    }
-                });
-
-                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const jobTitles = filteredJobs.map(job => job.jobTitle || "Unknown");
+                const salaryMin = filteredJobs.map(job => job.annualSalaryMin);
+                const salaryMax = filteredJobs.map(job => job.annualSalaryMax);
 
                 const dom = document.getElementById('chart-container');
                 let myChart = echarts.getInstanceByDom(dom);
@@ -38,7 +29,7 @@ const SalaryPage = () => {
 
                 const option = {
                     title: {
-                        text: 'Monthly Salary Range',
+                        text: 'Annual Salary Range by Job (USD)',
                         left: 'center',
                         top: '1%',
                         textStyle: {
@@ -62,17 +53,20 @@ const SalaryPage = () => {
                         {
                             type: 'category',
                             axisTick: { show: false },
-                            data: months,
+                            data: jobTitles,
                             axisLabel: {
-                                color: '#fff'
+                                color: '#fff',
+                                rotate: 45,
+                                interval: 0,
+                                formatter: function(value) {
+                                    return value.length > 10 ? value.slice(0, 10) + '...' : value;
+                                }
                             }
                         }
                     ],
                     yAxis: [
                         {
                             type: 'value',
-                            min: 25000,
-                            max: 90000,
                             axisLabel: {
                                 color: '#fff'
                             }
@@ -82,24 +76,20 @@ const SalaryPage = () => {
                         {
                             name: 'Min Salary',
                             type: 'bar',
-                            data: salaryMinMonthly,
+                            data: salaryMin,
                             label: {
                                 show: true,
                                 position: 'top',
-                                verticalAlign: 'middle',
-                                rotate: 90,
                                 color: '#fff'
                             }
                         },
                         {
                             name: 'Max Salary',
                             type: 'bar',
-                            data: salaryMaxMonthly,
+                            data: salaryMax,
                             label: {
                                 show: true,
                                 position: 'top',
-                                verticalAlign: 'middle',
-                                rotate: 90,
                                 color: '#fff'
                             }
                         }
