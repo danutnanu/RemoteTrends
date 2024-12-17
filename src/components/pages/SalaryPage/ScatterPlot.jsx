@@ -4,7 +4,7 @@ import './ScatterPlot.css';
 
 const ScatterPlot = () => {
     useEffect(() => {
-        const url = "https://jobicy.com/api/v2/remote-jobs?count=20&geo=usa&industry=marketing&tag=seo";
+        const url = "https://jobicy.com/api/v2/remote-jobs?count=50";
 
         fetch(url)
             .then((response) => response.json())
@@ -14,10 +14,10 @@ const ScatterPlot = () => {
                     return;
                 }
 
-                const scatterData = data.jobs.map(job => [
-                    job.annualSalaryMin || 0,
-                    job.annualSalaryMax || 0
-                ]);
+                const scatterData = data.jobs.map(job => ({
+                    value: [job.annualSalaryMin || 0, job.annualSalaryMax || 0],
+                    name: job.jobTitle || "Unknown"
+                }));
 
                 const dom = document.getElementById('scatter-container');
                 const myChart = echarts.init(dom);
@@ -43,8 +43,12 @@ const ScatterPlot = () => {
                     },
                     tooltip: {
                         trigger: 'item',
-                        axisPointer: {
-                            type: 'cross'
+                        formatter: function (params) {
+                            return `
+                                <strong>${params.data.name}</strong><br/>
+                                Min Salary: $${params.data.value[0]}<br/>
+                                Max Salary: $${params.data.value[1]}
+                            `;
                         }
                     },
                     xAxis: {
