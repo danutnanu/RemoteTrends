@@ -68,7 +68,13 @@ const SalaryPage = () => {
                         {
                             type: 'value',
                             axisLabel: {
-                                color: '#fff'
+                                color: '#fff',
+                                formatter: function(value) {
+                                    if (value >= 1000) {
+                                        return (value / 1000) + 'K';
+                                    }
+                                    return value;
+                                }
                             }
                         }
                     ],
