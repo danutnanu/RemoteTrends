@@ -26,7 +26,10 @@ const ScatterPlot = () => {
                     title: {
                         text: 'Salary Dispersion',
                         left: 'center',
-                        top: 0
+                        top: 0,
+                        textStyle: {
+                            color: '#fff'
+                        }
                     },
                     visualMap: {
                         min: 0,
@@ -44,20 +47,31 @@ const ScatterPlot = () => {
                     tooltip: {
                         trigger: 'item',
                         formatter: function (params) {
+                            const formatValue = (value) => value >= 1000 ? (value / 1000) + 'K' : value;
                             return `
                                 <strong>${params.data.name}</strong><br/>
-                                Min Salary: $${params.data.value[0]}<br/>
-                                Max Salary: $${params.data.value[1]}
+                                Min Salary: $${formatValue(params.data.value[0])}<br/>
+                                Max Salary: $${formatValue(params.data.value[1])}
                             `;
                         }
                     },
                     xAxis: {
                         type: 'value',
-                        name: 'Min Salary'
+                        name: 'Min Salary',
+                        axisLabel: {
+                            formatter: function (value) {
+                                return value >= 1000 ? (value / 1000) + 'K' : value;
+                            }
+                        }
                     },
                     yAxis: {
                         type: 'value',
-                        name: 'Max Salary'
+                        name: 'Max Salary',
+                        axisLabel: {
+                            formatter: function (value) {
+                                return value >= 1000 ? (value / 1000) + 'K' : value;
+                            }
+                        }
                     },
                     series: [
                         {
