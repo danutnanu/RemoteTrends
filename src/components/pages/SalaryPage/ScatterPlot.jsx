@@ -58,20 +58,30 @@ const ScatterPlot = () => {
                     xAxis: {
                         type: 'value',
                         name: 'Min Salary',
+                        nameTextStyle: {
+                            color: '#fff'
+                        },
                         axisLabel: {
                             formatter: function (value) {
                                 return value >= 1000 ? (value / 1000) + 'K' : value;
-                            }
-                        }
+                            },
+                            color: '#fff'
+                        },
+                        interval: 50000
                     },
                     yAxis: {
                         type: 'value',
                         name: 'Max Salary',
+                        nameTextStyle: {
+                            color: '#fff'
+                        },
                         axisLabel: {
                             formatter: function (value) {
                                 return value >= 1000 ? (value / 1000) + 'K' : value;
-                            }
-                        }
+                            },
+                            color: '#fff'
+                        },
+                        interval: 50000
                     },
                     series: [
                         {
