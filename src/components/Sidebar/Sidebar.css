@@ -5,16 +5,15 @@
 }
 
 .sidebar {
-    background-color: #24303f; 
+    background-color: #1a222c; 
     color: white; 
     height: 100vh;
     width: 250px; 
     position: fixed; 
     top: 0;
     left: 0; 
-    padding: 20px; 
+    padding: 60px; 
     z-index: 1000; 
-    margin-top: 70px;
 }
 
 .sidebar .nav-link {
@@ -34,31 +33,25 @@
 }
 
 /* Style for the navbar on small screens */
-.navbar-custom {
-    position: fixed; 
-    z-index: 1030; 
+.navbar-cus {
+    display: flex; /* Ensure it's displayed */
+    position: fixed;
+    z-index: 1200; /* High z-index to be on top */
     width: 100%;
     padding: 10px;
-    display: flex; 
-    align-items: center; 
-    justify-content: flex-start; 
-    background-color: #24303f;
-    margin: 0 !important;
-    padding: 0 !important;
+    background-color: #1a222c;
 }
 
 /* Ensure the toggle button is aligned to the left */
 .navbar-toggler {
-    margin-top: 20px;
-    margin-left: 5px;
-    position: absolute;
-    top: 0;
+    display: block;
+    z-index: 1300;
+    position: fixed;
+    top: 10px;
     left: 10px;
-    z-index: 1040;
-    border: none;
-    background: transparent;
     font-size: 1.5rem;
     cursor: pointer;
+    margin: 0;
 }
 
 /* Add padding to the body or main content to prevent overlap */
@@ -75,18 +68,24 @@ body {
     height: 100%; 
 }
 
-/* Hide the sidebar only on small devices */
-@media (max-width: 576px) {
+/* Show sidebar only on large devices */
+@media (min-width: 992px) {
+    .sidebar {
+        display: block;
+    }
+
+    .navbar-custom {
+        display: none;
+    }
+}
+
+/* Show navbar only on small and medium devices */
+@media (max-width: 991px) {
     .sidebar {
         display: none;
     }
 
-    .main-content {
-        margin-left: 0;
-        width: 100%;
-    }
-
     .navbar-custom {
-        display: flex;
+        display: flex !important;
     }
 }
