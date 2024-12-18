@@ -7,12 +7,19 @@ body, h1, .main-content, .charts-container {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    width: calc(100% - 250px);
-    margin-left: 250px;
+    width: 100%;
+    margin-left: 0;
     box-sizing: border-box;
     background-color: #1a222c;
     min-height: 100vh;
     overflow: hidden;
+}
+
+@media (min-width: 992px) {
+    .main-content {
+        width: calc(100% - 250px);
+        margin-left: 250px;
+    }
 }
 
 .charts-container {
@@ -36,25 +43,13 @@ body, h1, .main-content, .charts-container {
     }
 }
 
-.header {
+.navbar-custom {
+    position: fixed;
+    z-index: 1050;
+    width: 100%;
+    padding: 10px;
     display: flex;
     align-items: center;
-    justify-content: end;
-    background-color: #24303f;
-    margin: 0;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.header img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    margin-left: 0;
-}
-
-.header span {
-    color: #fff;
-    font-size: 1.5em;
-    font-weight: bold;
+    justify-content: flex-start;
+    background-color: #1a222c;
 }
