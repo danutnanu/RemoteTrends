@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import * as echarts from 'echarts';
 import './SalaryPage.css';
 import ScatterPlot from './ScatterPlot';
+import TopJobsChart from './TopJobsChart';
 
 const SalaryPage = () => {
     useEffect(() => {
@@ -120,6 +121,7 @@ const SalaryPage = () => {
                 <span style={{ color: '#fff', fontSize: '1.8em', fontWeight: 'bold' }}>RemoteTrends</span>
             </div>
             <div className="charts-container px-3">
+                <TopJobsChart />
                 <div id="chart-container" className="pt-3 rounded" style={{ width: '100%', height: '400px' }}></div>
             </div>
             <ScatterPlot />
