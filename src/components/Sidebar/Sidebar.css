@@ -5,38 +5,38 @@
 }
 
 .sidebar {
-    background-color: #1a222c; 
-    color: white; 
+    background-color: #1a222c;
+    color: white;
     height: 100vh;
-    width: 250px; 
-    position: fixed; 
+    width: 250px;
+    position: fixed;
     top: 0;
-    left: 0; 
-    padding: 60px; 
-    z-index: 1000; 
+    left: 0;
+    padding: 40px;
+    z-index: 1000;
 }
 
 .sidebar .nav-link {
-    color: white; 
-    text-decoration: none; 
+    color: white;
+    text-decoration: none;
 }
 
 .sidebar .nav-link:hover {
-    color: #74b3f1; 
+    color: #74b3f1;
 }
 
 .sidebar .nav-link:active,
 .sidebar .nav-link:focus {
-    color: #f8f9fa; 
-    background-color: transparent; 
-    outline: none; 
+    color: #f8f9fa;
+    background-color: transparent;
+    outline: none;
 }
 
 /* Style for the navbar on small screens */
 .navbar-cus {
-    display: flex; /* Ensure it's displayed */
+    display: flex;
     position: fixed;
-    z-index: 1200; /* High z-index to be on top */
+    z-index: 1200;
     width: 100%;
     padding: 10px;
     background-color: #1a222c;
@@ -47,25 +47,34 @@
     display: block;
     z-index: 1300;
     position: fixed;
-    top: 10px;
+    top: 30px;
     left: 10px;
     font-size: 1.5rem;
     cursor: pointer;
     margin: 0;
+    border: none;
+}
+
+.navigation-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 80px;
+    margin-top: 20px;
 }
 
 /* Add padding to the body or main content to prevent overlap */
 body {
     padding-top: 0;
-    background-color: #24303f; /* Match the header color */
+    background-color: #24303f;
 }
 
 /* Ensure the Offcanvas menu takes full height and width */
 .offcanvas-custom {
-    background-color: #24303f; 
+    background-color: #24303f;
     color: white;
     width: 250px;
-    height: 100%; 
+    height: 100%;
 }
 
 /* Show sidebar only on large devices */
@@ -88,4 +97,12 @@ body {
     .navbar-custom {
         display: flex !important;
     }
+}
+
+.navbar-toggler-icon {
+    background-color: rgb(174, 255, 0);
+    border-radius: 2px;
+    position: relative;
+    width: 30px;
+    height: 24px;
 }
