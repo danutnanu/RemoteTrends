@@ -13,7 +13,7 @@ const Sidebar = () => {
     <>
       <BootstrapNavbar expand="lg" className="navbar-cus d-lg-none fixed-top">
         <BootstrapNavbar.Toggle aria-controls="offcanvasNavbar" onClick={handleShow} className="navbar-toggler" />
-        <div className="ms-5 pb-5 justify-content-end">
+        <div className="navigation-bar pb-5 justify-content-end">
           <img src="/public/favic.ico" alt="RemoteTrends Logo" style={{ width: '30px', height: '30px', marginRight: '10px', marginLeft: '30px' }} />
           <span style={{ color: '#fff', fontSize: '1.6em', fontWeight: 'bold' }}>RemoteTrends</span>
         </div>
@@ -36,7 +36,7 @@ const Sidebar = () => {
         <div className="sidebar-header mb-5 p-2 fs-5 border-bottom">
           Menu
         </div>
-        <Nav className="flex-column ms-4 fs-5">
+        <Nav className="flex-column ms-2 fs-5">
           <Nav.Link as={Link} to="/">Location Page</Nav.Link>
           <Nav.Link as={Link} to="/salary">Salary Page</Nav.Link>
           <Nav.Link as={Link} to="/number">Number Page</Nav.Link>
