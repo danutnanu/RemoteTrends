@@ -65,16 +65,27 @@
 
 /* Add padding to the body or main content to prevent overlap */
 body {
-    padding-top: 0;
-    background-color: #24303f;
+    background-color: #1a222c;
+    color: white;
+    margin: 0;
+    padding: 0;
 }
 
 /* Ensure the Offcanvas menu takes full height and width */
 .offcanvas-custom {
-    background-color: #24303f;
-    color: white;
+    background-color: #1a222c !important;
+    color: white !important;
     width: 250px;
     height: 100%;
+}
+
+.offcanvas-custom .nav-link {
+    color: white !important;
+    text-decoration: none;
+}
+
+.offcanvas-custom .nav-link:hover {
+    color: #e4f808 !important;
 }
 
 /* Show sidebar only on large devices */
