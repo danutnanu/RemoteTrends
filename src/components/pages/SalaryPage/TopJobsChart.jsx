@@ -31,7 +31,7 @@ const TopJobsChart = () => {
 
                 const topJobsOption = {
                     title: {
-                        text: 'Top 5 Jobs by Salary',
+                        text: 'Top 5 Jobs by Salary (USD)',
                         left: 'center',
                         top: '5%',
                         textStyle: {
@@ -109,7 +109,7 @@ const TopJobsChart = () => {
             .catch((error) => console.error("Error:", error));
     }, []);
 
-    return <div id="top-jobs-chart" className="top-jobs-chart"></div>;
+    return <div id="top-jobs-chart" className="top-jobs-chart mb-5 border border-3"></div>;
 };
 
 export default TopJobsChart;
