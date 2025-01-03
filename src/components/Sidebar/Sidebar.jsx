@@ -13,7 +13,7 @@ const Sidebar = () => {
     <>
       <BootstrapNavbar expand="lg" className="navbar-cus d-lg-none fixed-top">
         <BootstrapNavbar.Toggle aria-controls="offcanvasNavbar" onClick={handleShow} className="navbar-toggler mt-3" />
-        <div className="navigation-bar pb-5 justify-content-end">
+        <div className="navigation-bar pb-3 mt-4 justify-content-end">
           <img src="/public/favic.ico" alt="RemoteTrends Logo" style={{ width: '30px', height: '40px', marginRight: '10px', marginLeft: '30px', paddingTop: '10px' }} />
           <span style={{ color: '#fff', fontSize: '1.7em', fontWeight: 'bold', borderBottom: '2px solid #fff', paddingTop: '10px' }}>RemoteTrends</span>
         </div>
