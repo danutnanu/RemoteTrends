@@ -111,7 +111,7 @@ body {
 }
 
 .navbar-toggler-icon {
-    background-color: rgb(174, 255, 0);
+    background-color: rgba(222, 250, 164, 0.861);
     border-radius: 2px;
     position: relative;
     width: 30px;
