@@ -103,7 +103,7 @@ const ScatterPlot = () => {
     }, []);
 
     return (
-        <div id="scatter-container" className="chart m-3 rounded"></div>
+        <div id="scatter-container" className="chart ms-3 rounded border border-3"></div>
     );
 };
 
