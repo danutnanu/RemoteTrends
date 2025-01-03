@@ -122,7 +122,7 @@ const SalaryPage = () => {
             </div>
             <div className="charts-container px-3">
                 <TopJobsChart />
-                <div id="chart-container" className="pt-3 rounded" style={{ width: '100%', height: '400px' }}></div>
+                <div id="chart-container" className="pt-3 mb-5 rounded border border-3" style={{ width: '100%', height: '400px' }}></div>
             </div>
             <ScatterPlot />
         </div>
