@@ -8,25 +8,26 @@ const SalaryPage = () => {
     useEffect(() => {
         const url = "https://jobicy.com/api/v2/remote-jobs?count=50";
 
-        fetch(url)
-            .then((response) => response.json())
-            .then((data) => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
                 if (!data.jobs || data.jobs.length === 0) {
                     console.error("No job data available");
                     return;
                 }
 
                 const filteredJobs = data.jobs.filter(job => job.annualSalaryMin > 0 && job.annualSalaryMax > 0);
-
                 const jobTitles = filteredJobs.map(job => job.jobTitle || "Unknown");
                 const salaryMin = filteredJobs.map(job => job.annualSalaryMin);
                 const salaryMax = filteredJobs.map(job => job.annualSalaryMax);
 
                 const dom = document.getElementById('chart-container');
                 let myChart = echarts.getInstanceByDom(dom);
-                if (!myChart) {
-                    myChart = echarts.init(dom);
+                if (myChart) {
+                    myChart.dispose();
                 }
+                myChart = echarts.init(dom);
 
                 const option = {
                     title: {
@@ -103,15 +104,20 @@ const SalaryPage = () => {
                     ]
                 };
 
-                if (option && typeof option === 'object') {
-                    myChart.setOption(option);
-                }
-
+                myChart.setOption(option);
                 window.addEventListener('resize', () => {
                     myChart.resize();
                 });
-            })
-            .catch((error) => console.error("Error:", error));
+
+                return () => {
+                    myChart.dispose();
+                };
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+
+        fetchData();
     }, []);
 
     return (
