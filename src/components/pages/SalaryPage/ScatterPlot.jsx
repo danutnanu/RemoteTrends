@@ -6,9 +6,10 @@ const ScatterPlot = () => {
     useEffect(() => {
         const url = "https://jobicy.com/api/v2/remote-jobs?count=50";
 
-        fetch(url)
-            .then((response) => response.json())
-            .then((data) => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
                 if (!data.jobs || data.jobs.length === 0) {
                     console.error("No job data available");
                     return;
@@ -20,7 +21,11 @@ const ScatterPlot = () => {
                 }));
 
                 const dom = document.getElementById('scatter-container');
-                const myChart = echarts.init(dom);
+                let myChart = echarts.getInstanceByDom(dom);
+                if (myChart) {
+                    myChart.dispose(); // Dispose of the existing chart instance
+                }
+                myChart = echarts.init(dom);
 
                 const option = {
                     title: {
@@ -98,8 +103,17 @@ const ScatterPlot = () => {
                 window.addEventListener('resize', () => {
                     myChart.resize();
                 });
-            })
-            .catch((error) => console.error("Error:", error));
+
+                // Cleanup function to dispose of the chart on unmount
+                return () => {
+                    myChart.dispose();
+                };
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        };
+
+        fetchData();
     }, []);
 
     return (
