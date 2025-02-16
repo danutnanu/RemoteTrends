@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import * as echarts from 'echarts';
+import './LocationPage.css'; // Import your CSS file
 
 const LocationPage = () => {
     useEffect(() => {
@@ -108,7 +109,7 @@ const LocationPage = () => {
     }, []);
 
     return (
-        <div className="location-page">
+        <div className="location-page" style={{ paddingLeft: '250px' }}>
             <h1>Jobs by Location</h1>
             <div id="job-location-chart" style={{ width: '100%', height: '400px' }}></div>
         </div>
