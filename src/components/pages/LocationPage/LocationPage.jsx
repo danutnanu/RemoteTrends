@@ -3,7 +3,7 @@ import * as echarts from 'echarts';
 
 const LocationPage = () => {
     useEffect(() => {
-        const jobUrl = "https://jobicy.com/api/v2/remote-jobs?count=100"; // Fetch all jobs
+        const jobUrl = "https://jobicy.com/api/v2/remote-jobs?count=50"; // Adjusted count to 50
         const locationUrl = "https://jobicy.com/api/v2/remote-jobs?get=locations"; // Fetch locations
 
         // Fetch location data
@@ -16,8 +16,11 @@ const LocationPage = () => {
                     return; // Exit if no location data
                 }
 
-                const locations = ["USA", "Canada", "UK"];
-                const locationMap = { "USA": 5, "Canada": 3, "UK": 2 }; // Example job counts
+                const locations = locationData.locations.map(location => location.geoName); // Extract location names
+                const locationMap = {};
+                locations.forEach(location => {
+                    locationMap[location] = 0; // Initialize count for each location
+                });
 
                 // Fetch job data
                 fetch(jobUrl)
