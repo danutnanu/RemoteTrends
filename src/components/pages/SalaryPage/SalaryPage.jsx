@@ -122,9 +122,11 @@ const SalaryPage = () => {
 
     return (
         <div className="main-content">
-            <div className="pe-5 pt-5 text-center">
+            <div className="fixed-top fixed-header text-center">
                 <img src="/public/favic.ico" alt="RemoteTrends Logo" style={{ width: '40px', height: '30px', marginRight: '20px', marginBottom: '10px' }} />
-                <span style={{ color: '#fff', fontSize: '1.8em', fontWeight: 'bold', borderBottom: '2px solid #fff' }}>RemoteTrends</span>
+                <div className="title-container">
+                    <span style={{ fontSize: '1.8em', fontWeight: 'bold' }}>RemoteTrends</span>
+                </div>
             </div>
             <div className="charts-container px-3">
                 <TopJobsChart />
