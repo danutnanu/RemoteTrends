@@ -13,7 +13,7 @@
     top: 0;
     left: 0;
     padding: 40px;
-    z-index: 1000;
+    z-index: 1050;
 }
 
 .sidebar .nav-link {
@@ -85,7 +85,7 @@ body {
 }
 
 .offcanvas-custom .nav-link:hover {
-    color: #e4f808 !important;
+    color: #74b3f1 !important;
 }
 
 /* Show sidebar only on large devices */
@@ -111,7 +111,7 @@ body {
 }
 
 .navbar-toggler-icon {
-    background-color: rgba(222, 250, 164, 0.861);
+    background-color: rgba(246, 246, 246, 0.861);
     border-radius: 2px;
     position: relative;
     width: 30px;
