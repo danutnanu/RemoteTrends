@@ -109,9 +109,16 @@ const LocationPage = () => {
     }, []);
 
     return (
-        <div className="location-page" style={{ paddingLeft: '250px' }}>
-            <h1>Jobs by Location</h1>
-            <div id="job-location-chart" style={{ width: '100%', height: '400px' }}></div>
+        <div className="main-content mt-5">
+            <div className="fixed-top fixed-header text-center">
+                <img src="/public/favic.ico" alt="RemoteTrends Logo" style={{ width: '40px', height: '30px', marginRight: '20px', marginBottom: '10px' }} />
+                <div className="title-container">
+                    <span style={{ fontSize: '1.8em', fontWeight: 'bold' }}>RemoteTrends</span>
+                </div>
+            </div>
+            <div className="location-page border border-info mt-5" style={{ paddingLeft: '100px' }}>
+                <div id="job-location-chart" style={{ width: '100%', height: '400px' }}></div>
+            </div>
         </div>
     );
 };
