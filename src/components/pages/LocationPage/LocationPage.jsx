@@ -116,8 +116,8 @@ const LocationPage = () => {
                     <span style={{ fontSize: '1.8em', fontWeight: 'bold' }}>RemoteTrends</span>
                 </div>
             </div>
-            <div className="location-page border border-info mt-5" style={{ paddingLeft: '100px' }}>
-                <div id="job-location-chart" style={{ width: '100%', height: '400px' }}></div>
+            <div className="location-page rounded border border-3 mt-5 pt-5 mx-5" style={{ paddingLeft: '100px' }}>
+                <div id="job-location-chart" style={{ width: '100%', height: '300px' }}></div>
             </div>
         </div>
     );
