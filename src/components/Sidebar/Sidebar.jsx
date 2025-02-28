@@ -32,7 +32,7 @@ const Sidebar = () => {
         </Offcanvas.Body>
       </Offcanvas>
 
-      <div className="sidebar d-none d-lg-block">
+      <div className="sidebar d-none d-lg-block pt-5 mt-5">
         <div className="sidebar-header mb-5 p-2 fs-5 border-bottom">
           Menu
         </div>
