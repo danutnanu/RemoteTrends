@@ -111,7 +111,7 @@ const LocationPage = () => {
     return (
         <div className="main-content mt-5">
             <div className="fixed-top fixed-header text-center">
-                <img src="/public/favic.ico" alt="RemoteTrends Logo" style={{ width: '40px', height: '30px', marginRight: '20px', marginBottom: '10px' }} />
+                <img src="/favic.ico" alt="RemoteTrends Logo" style={{ width: '40px', height: '30px', marginRight: '20px', marginBottom: '10px' }} />
                 <div className="title-container">
                     <span style={{ fontSize: '1.8em', fontWeight: 'bold' }}>RemoteTrends</span>
                 </div>
