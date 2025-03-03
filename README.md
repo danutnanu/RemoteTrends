@@ -13,6 +13,10 @@ Key features of the application include:
 
 Overall, RemoteTrends aims to empower job seekers and employers by providing valuable insights into the remote job market.
 
+ ## Live Demo
+
+Check out the live demo: [RemoteTrends on Netlify](https://remotetrends.netlify.app/)
+
 ## Screenshots
 
 ![Screenshot of RemoteTrends](./public/readme.png)
