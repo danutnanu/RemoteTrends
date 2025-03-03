@@ -1,8 +1,17 @@
-# React + Vite
+# RemoteTrends
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+RemoteTrends is a web application designed to provide users with insights into remote job trends. The application leverages a third-party API to fetch real-time job data, allowing users to explore various job listings based on location and other criteria.
+
+The project utilizes ECharts, a powerful charting library, to visualize the data in an interactive and user-friendly manner. With ECharts, users can easily interpret job distribution, trends, and other relevant statistics through visually appealing charts and graphs.
+
+Key features of the application include:
+- **Dynamic Data Fetching**: The application retrieves job data from an external API, ensuring that users have access to the latest information.
+- **Interactive Visualizations**: ECharts is used to create responsive and interactive charts that help users understand job trends at a glance.
+- **User-Friendly Interface**: The application is designed with a clean and intuitive interface, making it easy for users to navigate and find the information they need.
+
+Overall, RemoteTrends aims to empower job seekers and employers by providing valuable insights into the remote job market.
 
 ## Technologies Used
 
