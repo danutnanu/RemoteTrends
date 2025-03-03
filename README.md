@@ -13,12 +13,15 @@ Key features of the application include:
 
 Overall, RemoteTrends aims to empower job seekers and employers by providing valuable insights into the remote job market.
 
+## Screenshots
+
+![Screenshot of RemoteTrends](./public/readme.png)
+
 ## Technologies Used
 
 - ⚛️ React
 - 🟡 JavaScript
 - 🎨 Bootstrap
-
 
 ## How to Use
 
@@ -45,7 +48,6 @@ Overall, RemoteTrends aims to empower job seekers and employers by providing val
    ```
 
 6. **View in Browser**: Open your browser and go to your localhost to see your project running.
-
 
 ## Contact
 
