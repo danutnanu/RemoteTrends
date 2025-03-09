@@ -3,4 +3,27 @@
   color: white;
   min-height: 50vh;
   padding: 50px;
+  padding-left: 10px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .location-page {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .location-page {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+#job-location-chart {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
 }
