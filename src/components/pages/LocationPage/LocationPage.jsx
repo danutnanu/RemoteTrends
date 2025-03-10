@@ -59,7 +59,7 @@ const LocationPage = () => {
                                 legendLeft = '1%'; // Move legend more to the left
                                 pieCenter = ['65%', '60%']; // Move pie chart to the right
                             } else if (screenWidth <= 1024) { // Medium devices
-                                legendLeft = '2%'; // Keep legend closer to the left
+                                legendLeft = '1%'; // Keep legend closer to the left
                                 pieCenter = ['50%', '50%'];
                             } else { // Large devices
                                 legendLeft = '1%'; // Move legend more to the left
