@@ -135,13 +135,16 @@ const LocationPage = () => {
     return (
         <div className="main-content mt-5">
             <div className="fixed-top fixed-header text-center">
-                <img src="/favic.ico" alt="RemoteTrends Logo" style={{ width: '40px', height: '30px', marginRight: '20px', marginBottom: '10px' }} />
-                <div className="title-container">
-                    <span style={{ fontSize: '1.8em', fontWeight: 'bold' }}>RemoteTrends</span>
+                <div className="title-container rounded-3 p-2 mt-3">
+                    <img src="/favic.ico" alt="RemoteTrends Logo" style={{ width: '40px', height: '40px', marginRight: '5px', marginBottom: '5px' }} />
+                    <span className="title-remote" style={{ fontSize: '1.8em', fontWeight: 'bold' }}>Remote</span>
+                    <div className="title-trends rounded-4 py-1 px-3 mx-1">
+                        <span style={{ fontSize: '1.8em', fontWeight: 'bold' }}>Trends</span>
+                    </div>
                 </div>
             </div>
-            <div className="location-page rounded border border-3 mt-5 pt-5 mx-5" style={{ paddingLeft: '100px' }}>
-                <div id="job-location-chart" style={{ width: '100%', height: '300px' }}></div>
+            <div className="location-page rounded border border-1 pt-5" style={{ paddingLeft: '20px' }}>
+                <div id="job-location-chart" style={{ width: '110%', height: '300px' }}></div>
             </div>
         </div>
     );
