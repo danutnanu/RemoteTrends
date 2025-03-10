@@ -60,7 +60,7 @@ const SalaryPage = () => {
                                 color: '#fff',
                                 rotate: 45,
                                 interval: 0,
-                                formatter: function(value) {
+                                formatter: function (value) {
                                     return value.length > 10 ? value.slice(0, 10) + '...' : value;
                                 }
                             }
@@ -71,7 +71,7 @@ const SalaryPage = () => {
                             type: 'value',
                             axisLabel: {
                                 color: '#fff',
-                                formatter: function(value) {
+                                formatter: function (value) {
                                     if (value >= 1000) {
                                         return (value / 1000) + 'K';
                                     }
@@ -123,9 +123,12 @@ const SalaryPage = () => {
     return (
         <div className="main-content">
             <div className="fixed-top fixed-header text-center">
-                <img src="/favic.ico" alt="RemoteTrends Logo" style={{ width: '40px', height: '30px', marginRight: '20px', marginBottom: '10px' }} />
-                <div className="title-container">
-                    <span style={{ fontSize: '1.8em', fontWeight: 'bold' }}>RemoteTrends</span>
+                <div className="title-container rounded-3 p-2 mt-3">
+                    <img src="/favic.ico" alt="RemoteTrends Logo" style={{ width: '40px', height: '40px', marginRight: '5px', marginBottom: '5px' }} />
+                    <span className="title-remote" style={{ fontSize: '1.8em', fontWeight: 'bold' }}>Remote</span>
+                    <div className="title-trends rounded-4 py-1 px-3 mx-1">
+                        <span style={{ fontSize: '1.8em', fontWeight: 'bold' }}>Trends</span>
+                    </div>
                 </div>
             </div>
             <div className="charts-container px-3">
