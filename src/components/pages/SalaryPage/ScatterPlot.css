@@ -1,7 +1,7 @@
 .chart {
     width: calc(100% - 32px);
     height: 400px;
-    padding: 20px;
+    padding: 30px;
     box-sizing: border-box;
     background-color: #24303f;
 }
