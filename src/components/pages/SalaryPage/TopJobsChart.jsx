@@ -109,7 +109,7 @@ const TopJobsChart = () => {
             .catch((error) => console.error("Error:", error));
     }, []);
 
-    return <div id="top-jobs-chart" className="top-jobs-chart mb-5 border border-3"></div>;
+    return <div id="top-jobs-chart" className="top-jobs-chart border border-1"></div>;
 };
 
 export default TopJobsChart;
