@@ -68,11 +68,12 @@ body, h1, .main-content, .charts-container {
     .top-charts > div {
         width: calc(50% - 10px); /* Adjust width to fit side by side with gap */
     }
+
 }
 
 @media (max-width: 768px) {
     .main-content {
-        margin-left: 0;
+        /* margin-left: 0; */
         width: 100%;
     }
 }
