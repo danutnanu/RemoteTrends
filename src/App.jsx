@@ -6,12 +6,14 @@ import SalaryPage from './components/pages/SalaryPage/SalaryPage'
 import NumberPage from './components/pages/NumberPage/NumberPage'
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Topbar from './components/Topbar/Topbar'
 
 function App() {
   return (
     <>
       <Router>
         <Sidebar />
+        <Topbar />
         <Routes>
           <Route path="/" element={<LocationPage />} />
           <Route path="/salary" element={<SalaryPage />} />
