@@ -1,0 +1,21 @@
+.topbar {
+  background-color: #1a222c;
+  z-index: 1000;
+  align-items: center;
+  /* display: inline-flex; */
+}
+
+.title-container {
+  display: inline-flex;
+}
+
+.title-remote {
+  color: #1a222c;
+  padding: 10px 10px;
+}
+
+.title-trends {
+  background-color: #1a222c; 
+  color: #fff; 
+  margin-left: 10px;
+}
