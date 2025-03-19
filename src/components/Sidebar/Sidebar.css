@@ -7,12 +7,7 @@
 .sidebar {
     background-color: #1a222c;
     color: white;
-    height: 100vh;
-    width: 250px;
     position: fixed;
-    top: 0;
-    left: 0;
-    padding: 40px;
     z-index: 1050;
 }
 
@@ -34,11 +29,6 @@
 
 /* Style for the navbar on small screens */
 .navbar-cus {
-    display: flex;
-    position: fixed;
-    z-index: 1200;
-    width: 100%;
-    padding: 10px;
     background-color: #1a222c;
 }
 
@@ -46,74 +36,29 @@
 .navbar-toggler {
     display: block;
     z-index: 1300;
-    position: fixed;
-    top: 30px;
-    left: 10px;
-    font-size: 1.5rem;
     cursor: pointer;
-    margin: 0;
-    border: none;
 }
 
 .navigation-bar {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 80px;
-    margin-top: 20px;
-}
-
-/* Add padding to the body or main content to prevent overlap */
-body {
-    background-color: #1a222c;
-    color: white;
-    margin: 0;
-    padding: 0;
 }
 
 /* Ensure the Offcanvas menu takes full height and width */
 .offcanvas-custom {
     background-color: #1a222c !important;
     color: white !important;
-    width: 250px;
-    height: 100%;
 }
 
 .offcanvas-custom .nav-link {
     color: white !important;
-    text-decoration: none;
 }
 
 .offcanvas-custom .nav-link:hover {
     color: #74b3f1 !important;
 }
 
-/* Show sidebar only on large devices */
-@media (min-width: 992px) {
-    .sidebar {
-        display: block;
-    }
-
-    .navbar-custom {
-        display: none;
-    }
-}
-
-/* Show navbar only on small and medium devices */
-@media (max-width: 991px) {
-    .sidebar {
-        display: none;
-    }
-
-    .navbar-custom {
-        display: flex !important;
-    }
-}
-
 .navbar-toggler-icon {
     background-color: white;
-    border-radius: 2px;
-    position: relative;
-    width: 30px;
-    height: 24px;
 }
