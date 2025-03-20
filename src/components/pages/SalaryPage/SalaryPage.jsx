@@ -122,12 +122,20 @@ const SalaryPage = () => {
 
     return (
         <div className="main-content">
-            <div className="charts-container mt-5 p-2">
-                <div className="top-charts my-2 pt-2">
-                    <TopJobsChart />
-                    <ScatterPlot />
+            <div className="container p-1">
+                <div className="row m-1 mb-2">
+                    <div className="col p-0 mt-2 mt-lg-0">
+                        <div id="chart-container" className="pt-3 border border-1" style={{ height: '400px' }}></div>
+                    </div>
                 </div>
-                <div id="chart-container" className="pt-3 border border-1" style={{ width: '100%', height: '400px' }}></div>
+                <div className="row m-1">
+                    <div className="col-12 col-lg-6 p-0 mt-2 mt-lg-0 pe-lg-1" style={{ height: "400px" }}>
+                        <TopJobsChart />
+                    </div>
+                    <div className="col-12 col-lg-6 p-0 mt-3 mt-lg-0 ps-lg-1" style={{ height: "400px" }}>
+                        <ScatterPlot />
+                    </div>
+                </div>
             </div>
         </div>
     );
