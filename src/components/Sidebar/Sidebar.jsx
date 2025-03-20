@@ -32,7 +32,7 @@ const Sidebar = () => {
         </Offcanvas.Body>
       </Offcanvas>
 
-      <div className="sidebar d-none d-lg-block pt-5 px-5 mt-3" style={{ width: '250px', height: '100%'}}>
+      <div className="sidebar d-none d-lg-block pt-5 px-5" style={{ width: '250px', height: '100%'}}>
         <div className="sidebar-header mb-5 p-2 fs-4 border-bottom">
           Menu
         </div>
