@@ -2,7 +2,7 @@
   background-color: #24303f;
   z-index: 1000;
   align-items: center;
-  /* display: inline-flex; */
+  margin-left: 258px;
 }
 
 .title-container {
