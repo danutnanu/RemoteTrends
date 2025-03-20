@@ -62,3 +62,10 @@
 .navbar-toggler-icon {
     background-color: white;
 }
+
+.active-link {
+    color: #2083e6 !important;
+    background-color: #3a4b5f !important;
+    font-weight: bold;
+    border-radius: 2px;
+}
