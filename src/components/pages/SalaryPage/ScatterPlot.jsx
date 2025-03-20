@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import * as echarts from 'echarts';
-import './ScatterPlot.css';
 
 const ScatterPlot = () => {
     useEffect(() => {
@@ -117,7 +116,7 @@ const ScatterPlot = () => {
     }, []);
 
     return (
-        <div id="scatter-container" className="chart rounded border border-1"></div>
+        <div id="scatter-container" className="chart border border-1"></div>
     );
 };
 

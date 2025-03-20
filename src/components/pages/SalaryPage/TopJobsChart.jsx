@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import * as echarts from 'echarts';
-import './TopJobsChart.css';
 
 const TopJobsChart = () => {
     useEffect(() => {
