@@ -27,12 +27,10 @@
     outline: none;
 }
 
-/* Style for the navbar on small screens */
 .navbar-cus {
     background-color: #24303f;
 }
 
-/* Ensure the toggle button is aligned to the left */
 .navbar-toggler {
     display: block;
     z-index: 1300;
@@ -42,10 +40,8 @@
 .navigation-bar {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-/* Ensure the Offcanvas menu takes full height and width */
 .offcanvas-custom {
     background-color: #1a222c !important;
     color: white !important;
@@ -66,6 +62,5 @@
 .active-link {
     color: #2083e6 !important;
     background-color: #3a4b5f !important;
-    font-weight: bold;
     border-radius: 2px;
 }
