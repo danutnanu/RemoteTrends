@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import * as echarts from 'echarts';
-import './LocationPage.css'; // Import your CSS file
+import './LocationPage.css';
+import WorldLocation from './WorldLocation';
 
 const LocationPage = () => {
     useEffect(() => {
-        const jobUrl = "https://jobicy.com/api/v2/remote-jobs?count=50"; // Adjusted count to 50
-        const locationUrl = "https://jobicy.com/api/v2/remote-jobs?get=locations"; // Fetch locations
+        const jobUrl = "https://jobicy.com/api/v2/remote-jobs?count=50";
+        const locationUrl = "https://jobicy.com/api/v2/remote-jobs?get=locations";
 
-        // Fetch location data
         fetch(locationUrl)
             .then(response => response.json())
             .then(locationData => {
@@ -23,7 +23,6 @@ const LocationPage = () => {
                     locationMap[location] = 0; // Initialize count for each location
                 });
 
-                // Fetch job data
                 fetch(jobUrl)
                     .then(response => response.json())
                     .then(jobData => {
@@ -49,23 +48,8 @@ const LocationPage = () => {
                         console.log("Filtered Locations:", filteredLocations); // Log filtered locations
                         console.log("Job Counts:", jobCounts); // Log job counts for filtered locations
 
-                        // Initialize ECharts
+                        // Initialize ECharts for the existing chart
                         const setChartOptions = () => {
-                            const screenWidth = window.innerWidth;
-                            let legendLeft = '5%';
-                            let pieCenter = ['60%', '50%'];
-
-                            if (screenWidth <= 768) { // Small devices
-                                legendLeft = '1%'; // Move legend more to the left
-                                pieCenter = ['65%', '60%']; // Move pie chart to the right
-                            } else if (screenWidth <= 1024) { // Medium devices
-                                legendLeft = '1%'; // Keep legend closer to the left
-                                pieCenter = ['50%', '50%'];
-                            } else { // Large devices
-                                legendLeft = '1%'; // Move legend more to the left
-                                pieCenter = ['50%', '60%']; // Center the pie chart
-                            }
-
                             const option = {
                                 title: {
                                     text: 'Job Distribution by Location',
@@ -80,8 +64,7 @@ const LocationPage = () => {
                                 },
                                 legend: {
                                     orient: 'vertical',
-                                    left: legendLeft,
-                                    top: screenWidth <= 768 ? '20%' : 'middle', // Adjust top for small devices
+                                    left: 'left',
                                     textStyle: {
                                         color: '#fff'
                                     }
@@ -91,7 +74,6 @@ const LocationPage = () => {
                                         name: 'Job Count',
                                         type: 'pie',
                                         radius: '50%',
-                                        center: pieCenter,
                                         data: filteredLocations.map((location, index) => ({
                                             value: jobCounts[index],
                                             name: location
@@ -133,9 +115,14 @@ const LocationPage = () => {
     }, []);
 
     return (
-        <div className="main-content mt-5">
-            <div className="location-page rounded border border-1 pt-5" style={{ paddingLeft: '30px' }}>
-                <div id="job-location-chart" style={{ width: '110%', height: '300px' }}></div>
+        <div className="main-content">
+            <div className="container p-1">
+                <div className="m-1 mb-2 border border-1">
+                    <div id="job-location-chart" style={{ width: '100%', height: '400px' }}></div>
+                </div>
+                <div className="world m-1 mb-2 border border-1">
+                    <WorldLocation />
+                </div>
             </div>
         </div>
     );
