@@ -50,11 +50,13 @@ const LocationPage = () => {
 
                         // Initialize ECharts for the existing chart
                         const setChartOptions = () => {
+                            const isLargeScreen = window.innerWidth >= 992; // Check if the screen is large
+
                             const option = {
                                 title: {
                                     text: 'Job Distribution by Location',
                                     left: 'center',
-                                    top: '1%',
+                                    top: '5%',
                                     textStyle: {
                                         color: '#fff'
                                     }
@@ -64,7 +66,8 @@ const LocationPage = () => {
                                 },
                                 legend: {
                                     orient: 'vertical',
-                                    left: 'left',
+                                    top: '80',
+                                    left: isLargeScreen ? '50' : '5', // Adjust left position based on screen size
                                     textStyle: {
                                         color: '#fff'
                                     }
@@ -73,6 +76,7 @@ const LocationPage = () => {
                                     {
                                         name: 'Job Count',
                                         type: 'pie',
+                                        top: '20',
                                         radius: '50%',
                                         data: filteredLocations.map((location, index) => ({
                                             value: jobCounts[index],
