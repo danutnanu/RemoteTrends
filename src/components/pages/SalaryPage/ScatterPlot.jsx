@@ -30,7 +30,7 @@ const ScatterPlot = () => {
                     title: {
                         text: 'Salary Dispersion',
                         left: 'center',
-                        top: 0,
+                        top: 10,
                         textStyle: {
                             color: '#fff'
                         }
@@ -116,7 +116,7 @@ const ScatterPlot = () => {
     }, []);
 
     return (
-        <div id="scatter-container" className="chart border border-1"></div>
+        <div id="scatter-container" className="chart border border-1 p-4" style={{ height: "400px" }}></div>
     );
 };
 
