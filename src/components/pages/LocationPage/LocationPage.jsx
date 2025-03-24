@@ -69,6 +69,7 @@ const LocationPage = () => {
                                     {
                                         name: 'Job Count',
                                         type: 'pie',
+                                        top: '10%',
                                         radius: '50%',
                                         data: filteredLocations.map((location, index) => ({
                                             value: jobCounts[index],
