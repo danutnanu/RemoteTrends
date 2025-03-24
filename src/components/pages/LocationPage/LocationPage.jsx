@@ -11,7 +11,6 @@ const LocationPage = () => {
         fetch(locationUrl)
             .then(response => response.json())
             .then(locationData => {
-                console.log("Location Data:", locationData); // Log location data
                 if (!locationData.locations || locationData.locations.length === 0) {
                     console.error("No location data available");
                     return; // Exit if no location data
@@ -26,7 +25,6 @@ const LocationPage = () => {
                 fetch(jobUrl)
                     .then(response => response.json())
                     .then(jobData => {
-                        console.log("Job Data:", jobData); // Log entire job data
                         if (!jobData.jobs || jobData.jobs.length === 0) {
                             console.error("No job data available");
                             return; // Exit if no job data
@@ -34,7 +32,6 @@ const LocationPage = () => {
 
                         // Count jobs by location
                         jobData.jobs.forEach(job => {
-                            console.log("Job Location:", job.jobGeo); // Log job location
                             const jobLocation = job.jobGeo || "Unknown"; // Use jobGeo for location
                             if (locationMap.hasOwnProperty(jobLocation)) {
                                 locationMap[jobLocation]++; // Increment count for the location
@@ -45,13 +42,8 @@ const LocationPage = () => {
                         const filteredLocations = locations.filter(location => locationMap[location] > 0);
                         const jobCounts = filteredLocations.map(location => locationMap[location]); // Get job counts for filtered locations
 
-                        console.log("Filtered Locations:", filteredLocations); // Log filtered locations
-                        console.log("Job Counts:", jobCounts); // Log job counts for filtered locations
-
-                        // Initialize ECharts for the existing chart
+                        // Initialize ECharts for the pie chart
                         const setChartOptions = () => {
-                            const isLargeScreen = window.innerWidth >= 992; // Check if the screen is large
-
                             const option = {
                                 title: {
                                     text: 'Job Distribution by Location',
@@ -66,17 +58,17 @@ const LocationPage = () => {
                                 },
                                 legend: {
                                     orient: 'vertical',
-                                    top: '80',
-                                    left: isLargeScreen ? '50' : '5', // Adjust left position based on screen size
+                                    top: '25%', 
+                                    left: window.innerWidth >= 992 ? '10%' : 'left', // Adjust left position for large devices
                                     textStyle: {
                                         color: '#fff'
-                                    }
+                                    },
+                                    itemGap: window.innerWidth >= 992 ? 10 : 5 // Adjust item gap for large devices
                                 },
                                 series: [
                                     {
                                         name: 'Job Count',
                                         type: 'pie',
-                                        top: '20',
                                         radius: '50%',
                                         data: filteredLocations.map((location, index) => ({
                                             value: jobCounts[index],
@@ -106,11 +98,11 @@ const LocationPage = () => {
                             myChart.setOption(option);
                         };
 
-                        setChartOptions();
-                        window.addEventListener('resize', setChartOptions);
+                        setChartOptions(); // Call to set chart options
+                        window.addEventListener('resize', setChartOptions); // Add resize listener
 
                         return () => {
-                            window.removeEventListener('resize', setChartOptions);
+                            window.removeEventListener('resize', setChartOptions); // Cleanup listener
                         };
                     })
                     .catch(error => console.error("Error fetching job data:", error));
