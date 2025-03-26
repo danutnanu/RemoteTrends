@@ -54,14 +54,21 @@ const WorldLocation = () => {
                             }
                         },
                         tooltip: {
-                            trigger: 'item'
+                            trigger: 'item',
+                            // color: '#fff'
                         },
                         xAxis: {
                             type: 'category',
                             data: filteredLocations, // Use filtered locations for x-axis
+                            axisLabel: {
+                                color: '#fff' // Set x-axis labels color to white
+                            }
                         },
                         yAxis: {
-                            type: 'value'
+                            type: 'value',
+                            axisLabel: {
+                                color: '#fff' // Set y-axis labels color to white
+                            }
                         },
                         series: [
                             {
