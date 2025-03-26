@@ -1,15 +1,15 @@
 import React from 'react';
+import './NumberPage.css'
 
 const NumberPage = () => {
     return (
         <div className="main-content">
-            <div className="container border border-danger p-2">
-                <div className="row m-4">
-                    <div className="col me-2 border border-info rounded" style={{ height: "75px" }}></div>
-                    <div className="col ms-2 border border-info">test</div>
+            <div className="container p-1 mt-3 mt-lg-0">
+                <div className="ind m-1 mb-3 mb-lg-2 border border-1">
+                    test
                 </div>
-                <div className="row m-4">
-                    <div className="col border border-info">test</div>
+                <div className="ind m-1 mb-2 border border-1">
+                    test
                 </div>
             </div>
         </div>
