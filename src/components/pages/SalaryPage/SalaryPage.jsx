@@ -125,7 +125,7 @@ const SalaryPage = () => {
             <div className="container p-1">
                 <div className="row m-1 mb-2">
                     <div className="col p-0 mt-3 mt-lg-0">
-                        <div id="chart-container" className="pt-3 border border-1" style={{ height: '400px' }}></div>
+                        <div id="chart-container" className="pt-3 border border-1 rounded-3" style={{ height: '400px' }}></div>
                     </div>
                 </div>
                 <div className="row m-1">

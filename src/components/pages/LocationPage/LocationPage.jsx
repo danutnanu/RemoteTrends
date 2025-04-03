@@ -114,10 +114,10 @@ const LocationPage = () => {
     return (
         <div className="main-content">
             <div className="container p-1 mt-3 mt-lg-0">
-                <div className="m-1 mb-3 mb-lg-2 border border-1">
-                    <div id="job-location-chart" style={{ width: '100%', height: '400px' }}></div>
+                <div className="m-1 mb-3 mb-lg-2 border border-1 rounded-3">
+                    <div id="job-location-chart" className='rounded-3' style={{ width: '100%', height: '400px' }}></div>
                 </div>
-                <div className="world m-1 mb-2 border border-1">
+                <div className="world m-1 mb-2 border border-1 rounded-3">
                     <WorldLocation />
                 </div>
             </div>

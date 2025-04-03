@@ -4,7 +4,7 @@ import './Topbar.css'
 const Topbar = () => {
   return (
     <>
-      <div className="topbar fixed-top text-center p-3 me-2 border border-1">
+      <div className="topbar fixed-top text-center p-3 me-2 border border-1 rounded-bottom">
         <div className="title-container rounded-3 bg-light">
           <img src="/inc.ico" alt="RemoteTrends Logo" className='mt-3 ms-2' style={{ width: '30px', height: '30px' }} />
           <span className="title-remote mt-1 fs-4 fw-bold">Remote</span>

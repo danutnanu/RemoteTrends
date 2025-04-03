@@ -116,7 +116,7 @@ const ScatterPlot = () => {
     }, []);
 
     return (
-        <div id="scatter-container" className="chart border border-1 p-4" style={{ height: "400px" }}></div>
+        <div id="scatter-container" className="chart border border-1 rounded-3 p-4" style={{ height: "400px" }}></div>
     );
 };
 
