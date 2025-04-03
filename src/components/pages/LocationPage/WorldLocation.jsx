@@ -6,6 +6,71 @@ const WorldLocation = () => {
     const locationUrl = "https://jobicy.com/api/v2/remote-jobs?get=locations";
 
     useEffect(() => {
+        let barChart = null; // Store chart instance at component level
+
+        const setBarChartOptions = (filteredLocations, jobCounts) => {
+            const barOption = {
+                title: {
+                    text: 'Job Count by Location',
+                    left: 'center',
+                    top: '5%',
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    // color: '#fff'
+                },
+                xAxis: {
+                    type: 'category',
+                    data: filteredLocations, // Use filtered locations for x-axis
+                    axisLabel: {
+                        color: '#fff' // Set x-axis labels color to white
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: {
+                        color: '#fff' // Set y-axis labels color to white
+                    }
+                },
+                series: [
+                    {
+                        name: 'Jobs',
+                        type: 'bar',
+                        data: jobCounts, // Use job counts for the bar chart
+                        itemStyle: {
+                            borderRadius: 10
+                        }
+                    }
+                ],
+                color: ['#f2c31a', '#24b7f2', '#ff7f50', '#87cefa', '#da70d6', '#32cd32', '#6495ed', '#ff69b4'],
+                legend: {
+                    orient: 'vertical',
+                    top: '80',
+                    left: '5',
+                    textStyle: {
+                        color: '#fff'
+                    },
+                    padding: [10, 10, 10, 10], // Example padding
+                },
+            };
+
+            const barChartDom = document.getElementById('job-count-bar-chart');
+            if (barChart) {
+                barChart.dispose();
+            }
+            barChart = echarts.init(barChartDom);
+            barChart.setOption(barOption);
+        };
+
+        const handleResize = () => {
+            if (barChart) {
+                barChart.resize();
+            }
+        };
+
         const fetchData = async () => {
             try {
                 const locationResponse = await fetch(locationUrl);
@@ -42,72 +107,24 @@ const WorldLocation = () => {
                 const filteredLocations = locations.filter(location => locationMap[location] > 0);
                 const jobCounts = filteredLocations.map(location => locationMap[location]); // Get job counts for filtered locations
 
-                // Initialize ECharts for the bar chart
-                const setBarChartOptions = () => {
-                    const barOption = {
-                        title: {
-                            text: 'Job Count by Location',
-                            left: 'center',
-                            top: '5%',
-                            textStyle: {
-                                color: '#fff'
-                            }
-                        },
-                        tooltip: {
-                            trigger: 'item',
-                            // color: '#fff'
-                        },
-                        xAxis: {
-                            type: 'category',
-                            data: filteredLocations, // Use filtered locations for x-axis
-                            axisLabel: {
-                                color: '#fff' // Set x-axis labels color to white
-                            }
-                        },
-                        yAxis: {
-                            type: 'value',
-                            axisLabel: {
-                                color: '#fff' // Set y-axis labels color to white
-                            }
-                        },
-                        series: [
-                            {
-                                name: 'Jobs',
-                                type: 'bar',
-                                data: jobCounts, // Use job counts for the bar chart
-                                itemStyle: {
-                                    borderRadius: 10
-                                }
-                            }
-                        ],
-                        color: ['#f2c31a', '#24b7f2', '#ff7f50', '#87cefa', '#da70d6', '#32cd32', '#6495ed', '#ff69b4'],
-                        legend: {
-                            orient: 'vertical',
-                            top: '80',
-                            left: '5',
-                            textStyle: {
-                                color: '#fff'
-                            },
-                            padding: [10, 10, 10, 10], // Example padding
-                        },
-                    };
-
-                    const barChartDom = document.getElementById('job-count-bar-chart');
-                    let barChart = echarts.getInstanceByDom(barChartDom);
-                    if (barChart) {
-                        barChart.dispose();
-                    }
-                    barChart = echarts.init(barChartDom);
-                    barChart.setOption(barOption);
-                };
-
-                setBarChartOptions(); // Set up the bar chart
+                setBarChartOptions(filteredLocations, jobCounts);
+                
+                // Add resize event listener
+                window.addEventListener('resize', handleResize);
             } catch (error) {
                 console.error("Error:", error);
             }
         };
 
-        fetchData(); // Fetch data for the chart
+        fetchData();
+
+        // Cleanup function
+        return () => {
+            window.removeEventListener('resize', handleResize);
+            if (barChart) {
+                barChart.dispose();
+            }
+        };
     }, []);
 
     return (
