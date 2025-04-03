@@ -4,58 +4,80 @@ import './NumberPage.css'
 
 const NumberPage = () => {
     useEffect(() => {
-        const chartDom = document.getElementById('industry-chart');
-        const myChart = echarts.init(chartDom);
-        
-        const option = {
-            tooltip: {
-                trigger: 'item',
-                formatter: '{b}: {c} jobs ({d}%)'
-            },
-            legend: {
-                top: '5%',
-                left: 'center',
-                textStyle: {
-                    color: '#fff'
+        const fetchData = async () => {
+            try {
+                const response = await fetch('https://jobicy.com/api/v2/remote-jobs?count=50');
+                const data = await response.json();
+
+                if (!data.jobs || data.jobs.length === 0) {
+                    console.error("No job data available");
+                    return;
                 }
-            },
-            series: [
-                {
-                    name: 'Jobs by Industry',
-                    type: 'pie',
-                    radius: ['40%', '70%'],
-                    center: ['50%', '70%'],
-                    startAngle: 180,
-                    endAngle: 360,
-                    data: [
-                        { value: 45, name: 'Technology' },
-                        { value: 35, name: 'Marketing' },
-                        { value: 25, name: 'Design' },
-                        { value: 20, name: 'Customer Service' },
-                        { value: 15, name: 'Sales' },
-                        { value: 10, name: 'Finance' }
-                    ],
-                    label: {
-                        color: '#fff'
+
+                // Count jobs by industry
+                const industryCounts = {};
+                data.jobs.forEach(job => {
+                    const industry = job.jobIndustry || 'Other';
+                    industryCounts[industry] = (industryCounts[industry] || 0) + 1;
+                });
+
+                // Convert to array format for ECharts
+                const chartData = Object.entries(industryCounts).map(([name, value]) => ({
+                    name,
+                    value
+                }));
+
+                const chartDom = document.getElementById('industry-chart');
+                const myChart = echarts.init(chartDom);
+                
+                const option = {
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{b}: {c} jobs ({d}%)'
                     },
-                    itemStyle: {
-                        borderRadius: 5,
-                        borderColor: '#24303f',
-                        borderWidth: 2
-                    }
-                }
-            ]
+                    legend: {
+                        top: '5%',
+                        left: 'center',
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    },
+                    series: [
+                        {
+                            name: 'Jobs by Industry',
+                            type: 'pie',
+                            radius: ['40%', '70%'],
+                            center: ['50%', '70%'],
+                            startAngle: 180,
+                            endAngle: 360,
+                            data: chartData,
+                            label: {
+                                color: '#fff'
+                            },
+                            itemStyle: {
+                                borderRadius: 5,
+                                borderColor: '#24303f',
+                                borderWidth: 2
+                            }
+                        }
+                    ]
+                };
+
+                myChart.setOption(option);
+
+                window.addEventListener('resize', () => {
+                    myChart.resize();
+                });
+
+                return () => {
+                    myChart.dispose();
+                };
+            } catch (error) {
+                console.error("Error fetching job data:", error);
+            }
         };
 
-        myChart.setOption(option);
-
-        window.addEventListener('resize', () => {
-            myChart.resize();
-        });
-
-        return () => {
-            myChart.dispose();
-        };
+        fetchData();
     }, []);
 
     return (
