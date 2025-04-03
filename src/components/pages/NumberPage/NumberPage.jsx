@@ -66,7 +66,7 @@ const NumberPage = () => {
                 formatter: '{b}: {c} jobs ({d}%)'
             },
             legend: isLargeScreen ? {
-                top: '5%',
+                top: '1%',
                 left: 'center',
                 textStyle: {
                     color: '#fff'
@@ -78,6 +78,7 @@ const NumberPage = () => {
                 {
                     name: 'Jobs by Industry',
                     type: 'pie',
+                    top: '15%',
                     radius: ['40%', '70%'],
                     center: ['50%', isLargeScreen ? '70%' : '50%'],
                     startAngle: 180,
@@ -116,7 +117,7 @@ const NumberPage = () => {
         <div className="main-content">
             <div className="container p-1 mt-3 mt-lg-0">
                 <div className="ind m-1 mb-3 mb-lg-2 border border-1 rounded-3">
-                    <div id="industry-chart" style={{ height: '400px' }}></div>
+                    <div id="industry-chart" className='pt-sm-5' style={{ height: '400px' }}></div>
                 </div>
                 <div className="ind m-1 mb-2 border border-1 rounded-3">
                     test
