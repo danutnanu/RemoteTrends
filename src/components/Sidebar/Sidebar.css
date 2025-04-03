@@ -5,7 +5,7 @@
 }
 
 .sidebar {
-    background-color: #1a222c;
+    background-color: #24303f;
     color: white;
     position: fixed;
     z-index: 1050;
@@ -43,7 +43,7 @@
 }
 
 .offcanvas-custom {
-    background-color: #1a222c !important;
+    background-color: #24303f !important;
     color: white !important;
 }
 
