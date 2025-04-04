@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import * as echarts from 'echarts';
-import $ from 'jquery'; // Ensure jQuery is available
 
 const IndustryPage = () => {
     useEffect(() => {
@@ -14,73 +13,59 @@ const IndustryPage = () => {
         myChart = echarts.init(chartDom);
         myChart.showLoading();
 
-        // Fetch the disk data
-        $.get(ROOT_PATH + '/data/asset/data/disk.tree.json', function (diskData) {
-            myChart.hideLoading();
-            const formatUtil = echarts.format;
+        // Use the same API endpoint as in NumberPage
+        fetch('https://jobicy.com/api/v2/remote-jobs?count=50')
+            .then(response => response.json())
+            .then(data => {
+                myChart.hideLoading();
 
-            function getLevelOption() {
-                return [
-                    {
-                        itemStyle: {
-                            borderWidth: 0,
-                            gapWidth: 5
+                if (!data.jobs || data.jobs.length === 0) {
+                    console.error("No job data available");
+                    return;
+                }
+
+                // Process data for the chart
+                const industryCounts = {};
+                data.jobs.forEach(job => {
+                    const industry = job.jobIndustry || 'Other';
+                    industryCounts[industry] = (industryCounts[industry] || 0) + 1;
+                });
+
+                const processedData = Object.entries(industryCounts).map(([name, value]) => ({
+                    name,
+                    value
+                }));
+
+                myChart.setOption({
+                    title: {
+                        text: 'Jobs by Industry',
+                        left: 'center'
+                    },
+                    tooltip: {
+                        formatter: function (info) {
+                            return `${info.name}: ${info.value} jobs`;
                         }
                     },
-                    {
-                        itemStyle: {
-                            gapWidth: 1
+                    series: [
+                        {
+                            name: 'Jobs by Industry',
+                            type: 'treemap',
+                            data: processedData,
+                            label: {
+                                show: true,
+                                formatter: '{b}'
+                            },
+                            itemStyle: {
+                                borderColor: '#fff'
+                            }
                         }
-                    },
-                    {
-                        colorSaturation: [0.35, 0.5],
-                        itemStyle: {
-                            gapWidth: 1,
-                            borderColorSaturation: 0.6
-                        }
-                    }
-                ];
-            }
-
-            myChart.setOption({
-                title: {
-                    text: 'Disk Usage',
-                    left: 'center'
-                },
-                tooltip: {
-                    formatter: function (info) {
-                        var value = info.value;
-                        var treePathInfo = info.treePathInfo;
-                        var treePath = [];
-                        for (var i = 1; i < treePathInfo.length; i++) {
-                            treePath.push(treePathInfo[i].name);
-                        }
-                        return [
-                            '<div class="tooltip-title">' +
-                                formatUtil.encodeHTML(treePath.join('/')) +
-                                '</div>',
-                            'Disk Usage: ' + formatUtil.addCommas(value) + ' KB'
-                        ].join('');
-                    }
-                },
-                series: [
-                    {
-                        name: 'Disk Usage',
-                        type: 'treemap',
-                        visibleMin: 300,
-                        label: {
-                            show: true,
-                            formatter: '{b}'
-                        },
-                        itemStyle: {
-                            borderColor: '#fff'
-                        },
-                        levels: getLevelOption(),
-                        data: diskData
-                    }
-                ]
+                    ]
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching job data:", error);
+                myChart.hideLoading();
             });
-        });
 
         return () => {
             myChart.dispose();
