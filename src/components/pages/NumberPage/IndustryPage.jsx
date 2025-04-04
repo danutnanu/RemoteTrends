@@ -62,6 +62,19 @@ const IndustryPage = () => {
                 };
 
                 myChart.setOption(option);
+
+                // Resize chart on window resize
+                const handleResize = () => {
+                    myChart.resize();
+                };
+
+                window.addEventListener('resize', handleResize);
+
+                // Clean up the event listener on component unmount
+                return () => {
+                    window.removeEventListener('resize', handleResize);
+                    myChart.dispose();
+                };
             })
             .catch(error => {
                 console.error("Error fetching job data:", error);
