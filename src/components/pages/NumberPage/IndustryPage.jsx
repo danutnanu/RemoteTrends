@@ -74,7 +74,7 @@ const IndustryPage = () => {
     }, []); 
 
     return (
-        <div className="ind m-1 mb-2 border border-1 rounded-3" style={{ height: '400px' }}>
+        <div className="ind rounded-3" style={{ height: '400px' }}>
             <div id="disk-chart" style={{ height: '100%' }}></div>
         </div>
     );
