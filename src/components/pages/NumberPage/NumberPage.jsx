@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as echarts from 'echarts';
 import './NumberPage.css'
+import IndustryPage from './IndustryPage';
 
 const NumberPage = () => {
     const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 992);
@@ -120,7 +121,7 @@ const NumberPage = () => {
                     <div id="industry-chart" className='pt-sm-5' style={{ height: '400px' }}></div>
                 </div>
                 <div className="ind m-1 mb-2 border border-1 rounded-3">
-                    test
+                   <IndustryPage />
                 </div>
             </div>
         </div>
