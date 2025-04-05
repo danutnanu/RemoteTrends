@@ -26,6 +26,7 @@ Check out the live demo: [RemoteTrends on Netlify](https://remotetrends.netlify.
 - ⚛️ React
 - 🟡 JavaScript
 - 🎨 Bootstrap
+- 📈 ECharts
 
 ## How to Use
 
