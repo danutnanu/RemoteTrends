@@ -19,7 +19,7 @@ Check out the live demo: [RemoteTrends on Netlify](https://remotetrends.netlify.
 
 ## Screenshots
 
-![Screenshot of RemoteTrends](./public/readme.png)
+![Screenshot of RemoteTrends](./public/readme2.png)
 
 ## Technologies Used
 
