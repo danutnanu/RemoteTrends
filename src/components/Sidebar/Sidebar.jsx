@@ -34,7 +34,7 @@ const Sidebar = () => {
             <a href="mailto:danutnanu@icloud.com" target="_blank" className="me-3 text-decoration-none text-dark" aria-label="Email">
               <img src="/email.png" alt="Email" style={{ width: '30px', height: '30px' }} />
             </a>
-            <a href="https://github.com/danutnanu" target="_blank" className="me-3 text-decoration-none text-dark" aria-label="GitHub">
+            <a href="https://github.com/danutnanu/RemoteTrends" target="_blank" className="me-3 text-decoration-none text-dark" aria-label="GitHub">
               <img src="/github2.png" alt="GitHub" style={{ width: '30px', height: '30px' }} />
             </a>
             <a href="https://www.linkedin.com/in/danut-nanu-7474b4267/" target="_blank" className="text-decoration-none text-dark" aria-label="LinkedIn">
@@ -57,7 +57,7 @@ const Sidebar = () => {
           <a href="mailto:danutnanu@icloud.com" target="_blank" className="me-3 text-decoration-none text-dark" aria-label="Email">
             <img src="/email.png" alt="Email" style={{ width: '30px', height: '30px' }} />
           </a>
-          <a href="https://github.com/danutnanu" target="_blank" className="me-3 text-decoration-none text-dark" aria-label="GitHub">
+          <a href="https://github.com/danutnanu/RemoteTrends" target="_blank" className="me-3 text-decoration-none text-dark" aria-label="GitHub">
             <img src="/github2.png" alt="GitHub" style={{ width: '30px', height: '30px' }} />
           </a>
           <a href="https://www.linkedin.com/in/danut-nanu-7474b4267/" target="_blank" className="text-decoration-none text-dark" aria-label="LinkedIn">
