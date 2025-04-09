@@ -22,7 +22,7 @@ const Sidebar = () => {
 
       <Offcanvas show={show} onHide={handleClose} placement="start" id="offcanvasNavbar" className="offcanvas-custom" style={{ width: '250px', height: '100%', paddingTop: '30px' }}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title className='ms-2 p-2' style={{ width: '200px', borderBottom: '1px solid #fff'}}>Jobs</Offcanvas.Title>
+          <Offcanvas.Title className='ms-2 p-2' style={{ width: '200px', borderBottom: '1px solid #fff' }}>Jobs</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Nav className="flex-column fs-6">
@@ -30,10 +30,21 @@ const Sidebar = () => {
             <Nav.Link as={Link} to="/salary" onClick={handleClose} className={location.pathname === '/salary' ? 'active-link' : ''}>💰 by Salary</Nav.Link>
             <Nav.Link as={Link} to="/number" onClick={handleClose} className={location.pathname === '/number' ? 'active-link' : ''}>〄 by Industry</Nav.Link>
           </Nav>
+          <div className="d-flex mt-5 ms-3">
+            <a href="mailto:danutnanu@icloud.com" target="_blank" className="me-3 text-decoration-none text-dark" aria-label="Email">
+              <img src="/email.png" alt="Email" style={{ width: '40px', height: '40px' }} />
+            </a>
+            <a href="https://www.linkedin.com/in/danut-nanu-7474b4267/" target="_blank" className="me-3 text-decoration-none text-dark" aria-label="LinkedIn">
+              <img src="/linkedin2.png" alt="LinkedIn" style={{ width: '40px', height: '40px' }} />
+            </a>
+            <a href="https://github.com/danutnanu" target="_blank" className="text-decoration-none text-dark" aria-label="GitHub">
+              <img src="/github2.png" alt="GitHub" style={{ width: '40px', height: '40px' }} />
+            </a>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
 
-      <div className="sidebar d-none d-lg-block pt-5 px-2" style={{ width: '250px', height: '100%', borderRight: '1px solid #fff'}}>
+      <div className="sidebar d-none d-lg-block pt-5 px-2" style={{ width: '250px', height: '100%', borderRight: '1px solid #fff' }}>
         <div className="sidebar-header ms-3 mb-5 p-2 fs-3 border-bottom">
           Jobs
         </div>
@@ -42,6 +53,17 @@ const Sidebar = () => {
           <Nav.Link as={Link} to="/salary" className={location.pathname === '/salary' ? 'active-link' : ''}>💰 by Salary</Nav.Link>
           <Nav.Link as={Link} to="/number" className={location.pathname === '/number' ? 'active-link' : ''}>〄 by Industry</Nav.Link>
         </Nav>
+        <div className="d-flex mt-5 ms-3">
+          <a href="mailto:danutnanu@icloud.com" target="_blank" className="me-3 text-decoration-none text-dark" aria-label="Email">
+            <img src="/email.png" alt="Email" style={{ width: '40px', height: '40px' }} />
+          </a>
+          <a href="https://www.linkedin.com/in/danut-nanu-7474b4267/" target="_blank" className="me-3 text-decoration-none text-dark" aria-label="LinkedIn">
+            <img src="/linkedin2.png" alt="LinkedIn" style={{ width: '40px', height: '40px' }} />
+          </a>
+          <a href="https://github.com/danutnanu" target="_blank" className="text-decoration-none text-dark" aria-label="GitHub">
+            <img src="/github2.png" alt="GitHub" style={{ width: '40px', height: '40px' }} />
+          </a>
+        </div>
       </div>
     </>
   );
